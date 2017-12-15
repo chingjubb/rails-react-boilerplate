@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import MainPage from './main_page'
 
 export default class HelloWorld extends React.Component {
   render() {
@@ -11,10 +12,7 @@ export default class HelloWorld extends React.Component {
     } = this.props;
 
     return (
-      <div>
-        <h1>Hello World 234234!</h1>
-        <p>Timestamp: { serverTimestamp }</p>
-      </div>
+      <MainPage />
     );
   }
 
