@@ -12,7 +12,7 @@ export default class HelloWorld extends React.Component {
 
     return (
       <div>
-        <h1>Hello World!</h1>
+        <h1>Hello World 234234!</h1>
         <p>Timestamp: { serverTimestamp }</p>
       </div>
     );
