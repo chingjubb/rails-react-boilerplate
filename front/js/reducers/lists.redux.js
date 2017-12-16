@@ -44,7 +44,7 @@ export default handleActions({
     var newArray = [];
     var list = state.list2;
     for (var i = 0; i < list.length; i++) {
-      if (list[i] != action.value) {
+      if (list[i] != action.value ) {
         newArray.push(list[i]);
       }
     }

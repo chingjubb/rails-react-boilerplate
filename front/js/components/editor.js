@@ -74,7 +74,7 @@ export default class Editor extends React.Component {
               <td style={{width:'130px'}}>Columns (series)</td>
               <td onDrop={this.onDropList1} onDragOver={this.onDragOverList1}>
                 {this.props.list1.map((value, index) => (
-                  <span key={index}><EditorPill value={value} key={index} />&nbsp;</span>
+                  <span key={index}><EditorPill value={value} key={index} removeFromList={this.props.removeFromList1} />&nbsp;</span>
                 ))}
               </td>
             </tr>
@@ -82,7 +82,7 @@ export default class Editor extends React.Component {
               <td style={{width:'130px'}}>Rows (X axis)</td>
               <td onDrop={this.onDropList2} onDragOver={this.onDragOverList2}>
                 {this.props.list2.map((value, index) => (
-                  <span key={index}><EditorPill value={value} key={index} />&nbsp;</span>
+                  <span key={index}><EditorPill value={value} key={index} removeFromList={this.props.removeFromList2} />&nbsp;</span>
                 ))}
               </td>
             </tr>
@@ -90,7 +90,7 @@ export default class Editor extends React.Component {
               <td style={{width:'130px'}}>Values (Y axis)</td>
               <td onDrop={this.onDropList3} onDragOver={this.onDragOverList3}>
                 {this.props.list3.map((value, index) => (
-                  <span key={index}><EditorPill value={value} key={index} />&nbsp;</span>
+                  <span key={index}><EditorPill value={value} key={index} removeFromList={this.props.removeFromList3} />&nbsp;</span>
                 ))}
               </td>
             </tr>
@@ -98,7 +98,7 @@ export default class Editor extends React.Component {
               <td style={{width:'130px'}}>Filters</td>
               <td onDrop={this.onDropList4} onDragOver={this.onDragOverList4}>
                 {this.props.list4.map((value, index) => (
-                  <span key={index}><EditorPill value={value} key={index} />&nbsp;</span>
+                  <span key={index}><EditorPill value={value} key={index} removeFromList={this.props.removeFromList4} />&nbsp;</span>
                 ))}
               </td>
             </tr>
