@@ -38,6 +38,16 @@ export default class MainPage extends React.Component {
 
 MainPage.propTypes = {
   addToList1: React.PropTypes.func.isRequired,
+  addToList2: React.PropTypes.func.isRequired,
+  addToList3: React.PropTypes.func.isRequired,
+  addToList4: React.PropTypes.func.isRequired,
+
   removeFromList1: React.PropTypes.func.isRequired,
+  removeFromList2: React.PropTypes.func.isRequired,
+  removeFromList3: React.PropTypes.func.isRequired,
+  removeFromList4: React.PropTypes.func.isRequired,
   list1: React.PropTypes.array.isRequired,
+  list2: React.PropTypes.array.isRequired,
+  list3: React.PropTypes.array.isRequired,
+  list4: React.PropTypes.array.isRequired,
 };

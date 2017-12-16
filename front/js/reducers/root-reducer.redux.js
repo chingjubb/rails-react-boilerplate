@@ -5,9 +5,9 @@
 import { combineReducers } from 'redux';
 
 import serverTimestamp from './server-timestamp.redux';
-import list1 from './list1.redux';
+import lists from './lists.redux';
 
 export default combineReducers({
   serverTimestamp,
-  list1,
+  lists,
 });

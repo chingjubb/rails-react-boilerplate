@@ -6,7 +6,10 @@ import { connect } from 'react-redux';
 
 import HelloWorld from '../components/hello-world.comp';
 import { fetchServerTimestamp } from '../actions/server-timestamp.action';
-import { addToList1, removeFromList1 } from '../actions/list1.action';
+import { addToList1, removeFromList1, 
+ addToList2, removeFromList2,
+  addToList3, removeFromList3,
+ addToList4, removeFromList4} from '../actions/list1.action';
 
 /**
  * Handle state change and map it to local component props.
@@ -16,7 +19,10 @@ import { addToList1, removeFromList1 } from '../actions/list1.action';
 function mapStateToProps(state) {
   return {
     serverTimestamp: state.serverTimestamp,
-    list1: state.list1,
+    list1: state.lists.list1,
+    list2: state.lists.list2,
+    list3: state.lists.list3,
+    list4: state.lists.list4,
   };
 }
 
@@ -33,8 +39,26 @@ function mapDispatchToProps(dispatch) {
     addToList1: (value) => {
       dispatch(addToList1(value));
     },
+    addToList2: (value) => {
+      dispatch(addToList2(value));
+    },
+    addToList3: (value) => {
+      dispatch(addToList3(value));
+    },
+    addToList4: (value) => {
+      dispatch(addToList4(value));
+    },
     removeFromList1: (value) => {
       dispatch(removeFromList1(value));
+    },
+    removeFromList2: (value) => {
+      dispatch(removeFromList2(value));
+    },
+    removeFromList3: (value) => {
+      dispatch(removeFromList3(value));
+    },
+    removeFromList4: (value) => {
+      dispatch(removeFromList4(value));
     },
   };
 }
