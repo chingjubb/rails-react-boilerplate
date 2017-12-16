@@ -10,8 +10,13 @@ import LeftBar from './left_bar';
 import ChartArea from './chart_area';
 
 export default class MainPage extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
+  render() {
     return (
       <div>
         <Grid>
