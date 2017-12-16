@@ -33,8 +33,9 @@ export default handleActions({
   [REMOVE_FROM_LIST_1]: (state, action) => {
   	var newArray = [];
     var list = state.list1;
+    var index = list.indexOf(action.value);
   	for (var i = 0; i < list.length; i++) {
-  		if (list[i] != action.value) {
+  		if (i != index) {
   			newArray.push(list[i]);
   		}
   	}
@@ -43,8 +44,9 @@ export default handleActions({
   [REMOVE_FROM_LIST_2]: (state, action) => {
     var newArray = [];
     var list = state.list2;
+    var index = list.indexOf(action.value);
     for (var i = 0; i < list.length; i++) {
-      if (list[i] != action.value ) {
+      if (i != index) {
         newArray.push(list[i]);
       }
     }
@@ -53,8 +55,9 @@ export default handleActions({
   [REMOVE_FROM_LIST_3]: (state, action) => {
     var newArray = [];
     var list = state.list3;
+    var index = list.indexOf(action.value);
     for (var i = 0; i < list.length; i++) {
-      if (list[i] != action.value) {
+      if (i != index) {
         newArray.push(list[i]);
       }
     }
@@ -63,8 +66,9 @@ export default handleActions({
   [REMOVE_FROM_LIST_4]: (state, action) => {
     var newArray = [];
     var list = state.list4;
+    var index = list.indexOf(action.value);
     for (var i = 0; i < list.length; i++) {
-      if (list[i] != action.value) {
+      if (i != index) {
         newArray.push(list[i]);
       }
     }
