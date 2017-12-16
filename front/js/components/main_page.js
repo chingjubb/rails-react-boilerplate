@@ -26,7 +26,7 @@ export default class MainPage extends React.Component {
               <LeftBar />
             </Col>
         		<Col md={7} lg={7}>
-              <Editor />
+              <Editor {...this.props} />
               <ChartArea />
             </Col>
         	</Row>
@@ -35,3 +35,9 @@ export default class MainPage extends React.Component {
     );
   }
 }
+
+MainPage.propTypes = {
+  addToList1: React.PropTypes.func.isRequired,
+  removeFromList1: React.PropTypes.func.isRequired,
+  list1: React.PropTypes.array.isRequired,
+};

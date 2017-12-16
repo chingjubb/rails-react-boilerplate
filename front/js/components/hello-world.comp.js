@@ -12,17 +12,12 @@ export default class HelloWorld extends React.Component {
     } = this.props;
     console.log("helloworld this.props", this.props);
     return (
-      <MainPage {...this.props} />
+      <MainPage {...this.props} {...this.state} />
     );
   }
 
   componentDidMount() {
     this.props.onFetchServerTimestamp();
-    this.props.addToList1('yoyoyoyo');
-    this.props.addToList1('aa');
-    this.props.addToList1('bb');
-    this.props.addToList1('cc');
-    this.props.removeFromList1('bb');
   }
 }
 
