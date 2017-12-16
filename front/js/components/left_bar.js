@@ -3,8 +3,9 @@
  */
 
 import React from 'react';
+import { Panel } from 'react-bootstrap';
+import Pill from './pill';
 
-import { Button, Grid, Col, Row, Panel, Label } from 'react-bootstrap';
 export default class LeftBar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,27 +14,23 @@ export default class LeftBar extends React.Component {
   }
   render() {
   	 let dimentions = ['dte'];
-     let measures = ['new_mrrr', 'reactivation_mrrr', 'upgrade_mrrr'];
+     let measures = ['new_mrr', 'reactivation_mrr', 'upgrade_mrr', 'churn_mrr', 
+     'downgrad_mrr', 'mrr','new_cust','reactivation_cust', 'upgrade_cust','downgrad_cust','churn_cust','customer_live'];
+
     return (
-
       <Panel>
-      <div><b>Dimentions</b></div>
-      <div>
-        {dimentions.map((value, index) => (
-          <div key={index} draggable={true} style={{cursor:'pointer', display: 'inline-block'}}>
-            <Label bsStyle="primary" key={index} draggable={true} style={{cursor:'pointer'}}>{value}</Label>
-          </div>
-        ))}
-      </div>
-      <div><b>Measures</b></div>
-      <div>
-        {measures.map((value, index) => (
-          <div key={index} draggable={true} style={{cursor:'pointer', display: 'inline-block'}}>
-            <Label bsStyle="primary" key={index} draggable={true} style={{cursor:'pointer'}}>{value}</Label>
-          </div>
-        ))}
-      </div>
-
+        <div><b>Dimentions</b></div>
+        <div>
+          {dimentions.map((value, index) => (
+            <Pill value={value} key={index} />
+          ))}
+        </div>
+        <div><b>Measures</b></div>
+        <div>
+          {measures.map((value, index) => (
+            <Pill value={value} key={index} />
+          ))}
+        </div>
       </Panel>
     );
   }
