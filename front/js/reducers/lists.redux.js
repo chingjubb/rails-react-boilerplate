@@ -5,10 +5,10 @@
 import { handleActions } from 'redux-actions';
 
 import {
-  ADD_TO_LIST_1, REMOVE_FROM_LIST_1,
-  ADD_TO_LIST_2, REMOVE_FROM_LIST_2,
-  ADD_TO_LIST_3, REMOVE_FROM_LIST_3,
-  ADD_TO_LIST_4, REMOVE_FROM_LIST_4,
+  ADD_TO_LIST_1, REMOVE_FROM_LIST_1, REPLACE_LIST_1,
+  ADD_TO_LIST_2, REMOVE_FROM_LIST_2, REPLACE_LIST_2,
+  ADD_TO_LIST_3, REMOVE_FROM_LIST_3, REPLACE_LIST_3,
+  ADD_TO_LIST_4, REMOVE_FROM_LIST_4, REPLACE_LIST_4,
 } from '../constants/reducer-actions.const';
 
 const initialState = {list1: [], list2: [], list3: [], list4: []}; // initial state of List1 is an empty array
@@ -16,6 +16,10 @@ const initialState = {list1: [], list2: [], list3: [], list4: []}; // initial st
 export default handleActions({
   [ADD_TO_LIST_1]: (state, action) => {
     var newArray = state.list1.concat(action.value);
+    return {list1: newArray, list2: state.list2, list3: state.list3, list4: state.list4 };
+  },
+  [REPLACE_LIST_1]: (state, action) => {
+    var newArray = action.value;
     return {list1: newArray, list2: state.list2, list3: state.list3, list4: state.list4 };
   },
   [ADD_TO_LIST_2]: (state, action) => {
@@ -72,6 +76,18 @@ export default handleActions({
         newArray.push(list[i]);
       }
     }
+    return {list1: state.list1, list2: state.list2, list3: state.list3, list4: newArray };
+  },
+  [REPLACE_LIST_2]: (state, action) => {
+    var newArray = action.value;
+    return {list1: state.list1, list2: newArray, list3: state.list3, list4: state.list4 };
+  },
+  [REPLACE_LIST_3]: (state, action) => {
+    var newArray = action.value;
+    return {list1: state.list1, list2: state.list2, list3: newArray, list4: state.list4 };
+  },
+  [REPLACE_LIST_4]: (state, action) => {
+    var newArray = action.value;
     return {list1: state.list1, list2: state.list2, list3: state.list3, list4: newArray };
   },
 }, initialState);

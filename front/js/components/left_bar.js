@@ -25,6 +25,7 @@ export default class LeftBar extends React.Component {
             <Pill value={value} key={index} />
           ))}
         </div>
+        <div style={{height:'30px'}}/>
         <div><b>Measures</b></div>
         <div>
           {measures.map((value, index) => (
