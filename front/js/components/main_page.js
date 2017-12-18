@@ -28,8 +28,8 @@ export default class MainPage extends React.Component {
               <LeftBar />
             </Col>
         		<Col md={7} lg={7}>
-              <TypeSelectEditor {...this.props} />
-              <ChartArea />
+              <Editor {...this.props} />
+              <ChartArea {...this.props} />
             </Col>
             <Col md={3} lg={3}>
               <ChartSettingsArea />
