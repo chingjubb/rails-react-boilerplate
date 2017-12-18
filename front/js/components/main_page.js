@@ -31,7 +31,7 @@ export default class MainPage extends React.Component {
               <TypeSelectEditor {...this.props} />
               <ChartArea />
             </Col>
-            <Col md={2} lg={2}>
+            <Col md={3} lg={3}>
               <ChartSettingsArea />
             </Col>
         	</Row>

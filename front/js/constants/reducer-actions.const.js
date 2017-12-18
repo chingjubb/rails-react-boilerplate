@@ -18,7 +18,5 @@ export const ADD_TO_LIST_4 = 'ADD_TO_LIST_4';
 export const REMOVE_FROM_LIST_4 = 'REMOVE_FROM_LIST_4';
 
 export const REPLACE_LIST_2 = 'REPLACE_LIST_2';
-
 export const REPLACE_LIST_3 = 'REPLACE_LIST_3';
-
 export const REPLACE_LIST_4 = 'REPLACE_LIST_4';
