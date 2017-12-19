@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import { Button, Grid, Col, Row, Panel, Table } from 'react-bootstrap';
+import { Button, Grid, Col, Row, Panel, Table,} from 'react-bootstrap';
 import EditorPill from './editor_pill';
 
 export default class Editor extends React.Component {
@@ -67,7 +67,8 @@ export default class Editor extends React.Component {
   }
   render() {
     return (
-      <Panel>Editor Area
+      <Panel>
+        SQL Interactive
         <Table striped bordered condensed>
           <tbody>
             <tr>
