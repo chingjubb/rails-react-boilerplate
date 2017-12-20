@@ -16,6 +16,7 @@ export default class HelloWorld extends React.Component {
     };
     this.onMainPage1 = this.onMainPage1.bind(this);
     this.onMainPage2 = this.onMainPage2.bind(this);
+    this.onMainPage3 = this.onMainPage3.bind(this);
   }
   onMainPage1() {
     this.setState({mainPage1: true, mainPage2: false})
@@ -23,6 +24,10 @@ export default class HelloWorld extends React.Component {
   onMainPage2() {
     this.setState({mainPage1: false, mainPage2: true});
     this.props.setScenario('scenario2');
+  }
+  onMainPage3() {
+    this.setState({mainPage1: true, mainPage2: false});
+    this.props.setScenario('scenario3');
   }
   render() {
     console.log("this.props", this.props)
@@ -36,8 +41,9 @@ export default class HelloWorld extends React.Component {
       );
     } else {
       return (<Panel>
-                <Button onClick={this.onMainPage1}>MainPage1: Drop Editor</Button>
-                <Button onClick={this.onMainPage2}>MainPage2: Type Select Editor</Button>
+                <Button onClick={this.onMainPage1}>Scenario 1: Drop Editor</Button>
+                <Button onClick={this.onMainPage2}>Scenario 2: Type Select Editor</Button>
+                <Button onClick={this.onMainPage3}>Scenario 3: Drop Editor, Chart suggest</Button>
               </Panel>);
     }
   }

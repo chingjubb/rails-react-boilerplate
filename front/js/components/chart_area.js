@@ -71,7 +71,7 @@ export default class ChartArea extends React.Component {
     let dropArea = <ChartDropArea {...this.props} />
     let file = '';
     let alert = false;
-    if (this.props.scenario =='scenario1' || this.props.scenario =='scenario2' ) {
+    if (this.props.scenario =='scenario1' || this.props.scenario =='scenario2' || this.props.scenario =='scenario3') {
       let column = null;
       let x = null;
       let y = null;
@@ -87,6 +87,9 @@ export default class ChartArea extends React.Component {
       }
       if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'table') {
         file = 'chart-type-x-count-x-year.png';
+        if (this.props.scenario == 'scenario3') {
+          file = 'bar-chart.png';
+        }
       } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'bar') {
         file = 'bar-chart.png'
       } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'line') {
@@ -105,11 +108,17 @@ export default class ChartArea extends React.Component {
           alert = true;
         }
         file = 'chart-type-x-count.png';
+        if (this.props.scenario =='scenario3') {
+          file = 'pie-count-and-type.png'
+        }
       } else if (column == null && x =='year' && y == 'count') {
         if (this.props.list2.length > 1 || this.props.list3.length > 1) {
           alert = true;
         }
         file = 'year-x-count.png';
+        if (this.props.scenario =='scenario3') {
+          file = 'bar-chart-year-and-count.png'
+        }
       } else if (column == null && x == null && y == 'count') { 
         if (this.props.list3.length > 1) {
           alert = true;
@@ -138,7 +147,13 @@ export default class ChartArea extends React.Component {
       return this.renderImageWithDropArea(file);
     } else if (file.length > 0 && this.props.scenario == 'scenario2') {
       return this.renderImage(file);
-    } else {
+    } else if (this.props.scenario == 'scenario1') {
+      return (<ChartDropArea {...this.props} />);
+    } else if (this.props.scenario == 'scenario2') {
+      return <div>Chart Area </div>
+    } else if (file.length > 0 && this.props.scenario =='scenario3') {
+      return this.renderImageWithDropArea(file);
+    } else if (this.props.scenario =='scenario3') {
       return (<ChartDropArea {...this.props} />);
     }
 
