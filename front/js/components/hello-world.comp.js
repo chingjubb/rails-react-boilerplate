@@ -21,9 +21,11 @@ export default class HelloWorld extends React.Component {
     this.setState({mainPage1: true, mainPage2: false})
   }
   onMainPage2() {
-    this.setState({mainPage1: false, mainPage2: true})
+    this.setState({mainPage1: false, mainPage2: true});
+    this.props.setScenario('scenario2');
   }
   render() {
+    console.log("this.props", this.props)
     if (this.state.mainPage1) {
       return (
         <MainPage {...this.props} {...this.state} />
@@ -34,7 +36,6 @@ export default class HelloWorld extends React.Component {
       );
     } else {
       return (<Panel>
-                <img src='images/date1.png'/>
                 <Button onClick={this.onMainPage1}>MainPage1: Drop Editor</Button>
                 <Button onClick={this.onMainPage2}>MainPage2: Type Select Editor</Button>
               </Panel>);
@@ -48,7 +49,9 @@ export default class HelloWorld extends React.Component {
 
 /** @const {Object} propTypes definition */
 HelloWorld.propTypes = {
+  scenario:React.PropTypes.string.isRequired,
   serverTimestamp: React.PropTypes.number,
+  setScenario: React.PropTypes.func.isRequired,
   onFetchServerTimestamp: React.PropTypes.func.isRequired,
   addToList1: React.PropTypes.func.isRequired,
   addToList2: React.PropTypes.func.isRequired,

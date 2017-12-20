@@ -8,9 +8,9 @@ import { ADD_TO_LIST_1,
   ADD_TO_LIST_2,
   REMOVE_FROM_LIST_2,
   ADD_TO_LIST_3,
- REMOVE_FROM_LIST_3,
- ADD_TO_LIST_4,
- REMOVE_FROM_LIST_4} from '../constants/reducer-actions.const';
+  REMOVE_FROM_LIST_3,
+  ADD_TO_LIST_4,
+  REMOVE_FROM_LIST_4} from '../constants/reducer-actions.const';
 
 export const addToList1 = (value) => {
   return function(dispatch) {

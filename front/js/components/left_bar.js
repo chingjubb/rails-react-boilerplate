@@ -12,36 +12,52 @@ export default class LeftBar extends React.Component {
     super(props);
     this.state = {
     };
+
+    this.dimentions = ['dte'];
+    this.measures = ['new_mrr', 
+                     'reactivation_mrr', 
+                     'upgrade_mrr', 
+                     'churn_mrr', 
+                     'downgrad_mrr', 
+                     'mrr',
+                     'new_cust',
+                     'reactivation_cust', 
+                     'upgrade_cust',
+                     'downgrad_cust',
+                     'churn_cust',
+                     'customer_live'];
+
+    this.options = [{value:'chart type', label:'chart type'}, 
+                    {value:'year', label:'year'},
+                    {value:'count',label:'count'},];
+
+    if (this.props.scenario=='scenario1') {
+      this.dimentions = ['chart type', 'year'];
+      this.measures = ['count'];
+    }             
+
   }
   render() {
-  	 const dimentions = ['dte'];
-     const measures = ['new_mrr', 'reactivation_mrr', 'upgrade_mrr', 'churn_mrr', 
-     'downgrad_mrr', 'mrr','new_cust','reactivation_cust', 'upgrade_cust','downgrad_cust','churn_cust','customer_live'];
-
-     const options = [{value:'business_metrics',label:'business_metrics'}, 
-                      {value:'time_on_site_per_day',label:'time_on_site_per_day'},
-                      {value:'active_site_users',label:'active_site_users'},
-                      {value:'_mrr_change',label:'_mrr_change'}, 
-                      {value:'_charts_data',label:'_charts_data'}]
+  	 
     return (
       <Panel>
         SQL Views
         <Select name='form-field-name'
                 placeholder='Select Chart Type'
                 value={'business_metrics'}
-                options={options} 
+                options={this.options} 
                 clearable={false} />
         <div style={{height:'30px'}}/>
         <div><b>Dimentions</b></div>
         <div>
-          {dimentions.map((value, index) => (
+          {this.dimentions.map((value, index) => (
             <Pill value={value} key={index} />
           ))}
         </div>
         <div style={{height:'30px'}}/>
         <div><b>Measures</b></div>
         <div>
-          {measures.map((value, index) => (
+          {this.measures.map((value, index) => (
             <Pill value={value} key={index} />
           ))}
         </div>
@@ -49,3 +65,19 @@ export default class LeftBar extends React.Component {
     );
   }
 }
+
+LeftBar.propTypes = {
+  addToList1: React.PropTypes.func.isRequired,
+  addToList2: React.PropTypes.func.isRequired,
+  addToList3: React.PropTypes.func.isRequired,
+  addToList4: React.PropTypes.func.isRequired,
+  removeFromList1: React.PropTypes.func.isRequired,
+  removeFromList2: React.PropTypes.func.isRequired,
+  removeFromList3: React.PropTypes.func.isRequired,
+  removeFromList4: React.PropTypes.func.isRequired,
+  replaceList1: React.PropTypes.func.isRequired,
+  list1: React.PropTypes.array.isRequired,
+  list2: React.PropTypes.array.isRequired,
+  list3: React.PropTypes.array.isRequired,
+  list4: React.PropTypes.array.isRequired,
+};

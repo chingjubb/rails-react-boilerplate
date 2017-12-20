@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 
 import HelloWorld from '../components/hello-world.comp';
 import { fetchServerTimestamp } from '../actions/server-timestamp.action';
-import { addToList1, 
+import {
+  addToList1, 
   removeFromList1, 
   addToList2, 
   removeFromList2,
@@ -18,6 +19,7 @@ import { addToList1,
   replaceList2, 
   replaceList3, 
   replaceList4} from '../actions/list1.action';
+import { setScenario } from '../actions/scenario.action';
 
 /**
  * Handle state change and map it to local component props.
@@ -31,6 +33,7 @@ function mapStateToProps(state) {
     list2: state.lists.list2,
     list3: state.lists.list3,
     list4: state.lists.list4,
+    scenario: state.scenario,
   };
 }
 
@@ -79,6 +82,9 @@ function mapDispatchToProps(dispatch) {
     },
     removeFromList4: (value) => {
       dispatch(removeFromList4(value));
+    },
+    setScenario: (value) => {
+      dispatch(setScenario(value));
     },
   };
 }

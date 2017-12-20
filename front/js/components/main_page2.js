@@ -25,14 +25,14 @@ export default class MainPage2 extends React.Component {
           <h1>Revenue and Growth Rate</h1>
         	<Row className="show-grid">
         		<Col md={2} lg={2}>
-              <LeftBar />
+              <LeftBar {...this.props} />
             </Col>
         		<Col md={7} lg={7}>
               <TypeSelectEditor {...this.props} />
-              <ChartArea {...this.props} />
+              <div>Chart Area</div>
             </Col>
             <Col md={3} lg={3}>
-              <ChartSettingsArea />
+              <ChartSettingsArea {...this.props} />
             </Col>
         	</Row>
         </Grid>

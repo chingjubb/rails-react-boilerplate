@@ -19,20 +19,24 @@ export default class MainPage extends React.Component {
   }
 
   render() {
+    let title = '';
+    if (this.props.scenario =='scenario1') {
+      title = 'Charts over time by type';
+    }
     return (
       <div>
         <Grid>
-          <h1>Revenue and Growth Rate</h1>
+          <h1>{title}</h1>
         	<Row className="show-grid">
         		<Col md={2} lg={2}>
-              <LeftBar />
+              <LeftBar {...this.props} />
             </Col>
         		<Col md={7} lg={7}>
               <Editor {...this.props} />
               <ChartArea {...this.props} />
             </Col>
             <Col md={3} lg={3}>
-              <ChartSettingsArea />
+              <ChartSettingsArea {...this.props} />
             </Col>
         	</Row>
         </Grid>
