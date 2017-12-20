@@ -29,7 +29,7 @@ export default class MainPage2 extends React.Component {
             </Col>
         		<Col md={7} lg={7}>
               <TypeSelectEditor {...this.props} />
-              <div>Chart Area</div>
+              <ChartArea {...this.props} />
             </Col>
             <Col md={3} lg={3}>
               <ChartSettingsArea {...this.props} />

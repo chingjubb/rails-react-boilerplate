@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import { Button, Grid, Col, Row, Panel, Table } from 'react-bootstrap';
+import { Button, Grid, Col, Row, Panel, Table, Alert } from 'react-bootstrap';
 import ChartDropArea from './chart_drop_area';
 
 export default class ChartArea extends React.Component {
@@ -70,7 +70,8 @@ export default class ChartArea extends React.Component {
   render() {
     let dropArea = <ChartDropArea {...this.props} />
     let file = '';
-    if (this.props.scenario =='scenario1') {
+    let alert = false;
+    if (this.props.scenario =='scenario1' || this.props.scenario =='scenario2' ) {
       let column = null;
       let x = null;
       let y = null;
@@ -95,22 +96,48 @@ export default class ChartArea extends React.Component {
       } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'pie') {
         file = 'pie-chart.png'
       } else if (column == 'chart type' && x =='year' && y == null) {
+        if (this.props.list1.length > 1 || this.props.list2.length > 1) {
+          alert = true;
+        }
         file = 'chart-type-x-year.png';
       } else if (column == 'chart type' && x ==null && y == 'count') {
+        if (this.props.list1.length > 1 || this.props.list3.length > 1) {
+          alert = true;
+        }
         file = 'chart-type-x-count.png';
       } else if (column == null && x =='year' && y == 'count') {
+        if (this.props.list2.length > 1 || this.props.list3.length > 1) {
+          alert = true;
+        }
         file = 'year-x-count.png';
       } else if (column == null && x == null && y == 'count') { 
+        if (this.props.list3.length > 1) {
+          alert = true;
+        }
         file = 'count.png';
       } else if (column == 'chart type' && x == null && y == null) { 
+        if (this.props.list1.length > 1) {
+          alert = true;
+        }
         file = 'chart-type.png';
       } else if (column == null && x == 'year' && y == null) { 
+        if (this.props.list2.length > 1) {
+          alert = true;
+        }
         file = 'year.png'
+      } else if (this.props.list1.length > 0 || this.props.list2.length > 0 ||this.props.list3.length > 0) {
+        alert = true;
       }
     }
 
-    if (file.length > 0) {
+    if (alert) {
+      return <Alert>Wrong combination!</Alert>
+    }
+
+    if (file.length > 0 && this.props.scenario == 'scenario1') {
       return this.renderImageWithDropArea(file);
+    } else if (file.length > 0 && this.props.scenario == 'scenario2') {
+      return this.renderImage(file);
     } else {
       return (<ChartDropArea {...this.props} />);
     }

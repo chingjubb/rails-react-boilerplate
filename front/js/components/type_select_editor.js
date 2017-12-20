@@ -36,6 +36,12 @@ export default class TypeSelectEditor extends React.Component {
                     {value:'downgrad_cust', label:'downgrad_cust'},
                     {value:'churn_cust', label:'churn_cust'},
                     {value:'customer_live', label:'customer_live'} ];
+
+    if (this.props.scenario == 'scenario1' || this.props.scenario =='scenario2') {
+      this.options = [{value:'chart type', label:'chart type'},
+                      {value:'year', label:'year'},
+                      {value:'count', label:'count'}];
+    }
    
   }
 
@@ -116,18 +122,6 @@ export default class TypeSelectEditor extends React.Component {
                         placeholder='type dimention or measure here'
                         value={this.state.optionArray3}
                         onChange={this.handleChange3}
-                        options={this.options} 
-                  />
-              </td>
-            </tr>
-            <tr>
-              <td style={{width:'130px'}}>Filters</td>
-              <td style={{padding:'0px'}}>
-                <Select name='form-field-name'
-                        multi={true}
-                        placeholder='type dimention or measure here'
-                        value={this.state.optionArray4}
-                        onChange={this.handleChange4}
                         options={this.options} 
                   />
               </td>

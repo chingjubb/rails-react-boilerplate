@@ -95,14 +95,6 @@ export default class Editor extends React.Component {
                 ))}
               </td>
             </tr>
-            <tr>
-              <td style={{width:'130px'}}>Filters</td>
-              <td onDrop={this.onDropList4} onDragOver={this.onDragOverList4}>
-                {this.props.list4.map((value, index) => (
-                  <span key={index}><EditorPill value={value} key={index} removeFromList={this.props.removeFromList4} />&nbsp;</span>
-                ))}
-              </td>
-            </tr>
           </tbody>
         </Table>
       </Panel>

@@ -31,7 +31,7 @@ export default class LeftBar extends React.Component {
                     {value:'year', label:'year'},
                     {value:'count',label:'count'},];
 
-    if (this.props.scenario=='scenario1') {
+    if (this.props.scenario=='scenario1' || this.props.scenario=='scenario2') {
       this.dimentions = ['chart type', 'year'];
       this.measures = ['count'];
     }             
