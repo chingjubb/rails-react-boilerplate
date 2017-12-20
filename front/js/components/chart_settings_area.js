@@ -9,19 +9,19 @@ import Select from 'react-select';
 export default class ChartSettingsArea extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      chartType: 'table'
-    };
+
     this.options= [{value:'table', label:'table'},
                    {value:'bar', label:'bar'},
                    {value:'line', label:'line'},
                    {value:'number overlay', label:'number overlay'},
-                   {value:'sparkline', label:'sparkline'}];
+                   {value:'pie', label:'pie'}];
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(selectedValue) {
-    this.setState({chartType: selectedValue});
+    console.log("change to chart type: ",selectedValue.value);
+    let newChartType = selectedValue.value;
+    this.props.setChartType(newChartType)
   }
   render() {
     return (
@@ -29,7 +29,7 @@ export default class ChartSettingsArea extends React.Component {
         Chart Type
         <Select name='form-field-name'
                 placeholder='Select Chart Type'
-                value={this.state.chartType}
+                value={this.props.chartType}
                 onChange={this.handleChange}
                 options={this.options} 
                 clearable={false} />

@@ -50,6 +50,7 @@ export default class HelloWorld extends React.Component {
 /** @const {Object} propTypes definition */
 HelloWorld.propTypes = {
   scenario:React.PropTypes.string.isRequired,
+  chartType:React.PropTypes.string.isRequired,
   serverTimestamp: React.PropTypes.number,
   setScenario: React.PropTypes.func.isRequired,
   onFetchServerTimestamp: React.PropTypes.func.isRequired,
@@ -65,4 +66,5 @@ HelloWorld.propTypes = {
   list2: React.PropTypes.array.isRequired,
   list3: React.PropTypes.array.isRequired,
   list4: React.PropTypes.array.isRequired,
+  setChartType: React.PropTypes.func.isRequired,
 };

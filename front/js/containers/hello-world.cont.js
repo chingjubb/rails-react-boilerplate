@@ -20,7 +20,7 @@ import {
   replaceList3, 
   replaceList4} from '../actions/list1.action';
 import { setScenario } from '../actions/scenario.action';
-
+import { setChartType } from '../actions/chartType.action';
 /**
  * Handle state change and map it to local component props.
  *
@@ -34,6 +34,7 @@ function mapStateToProps(state) {
     list3: state.lists.list3,
     list4: state.lists.list4,
     scenario: state.scenario,
+    chartType: state.chartType,
   };
 }
 
@@ -85,6 +86,9 @@ function mapDispatchToProps(dispatch) {
     },
     setScenario: (value) => {
       dispatch(setScenario(value));
+    },
+    setChartType: (value) => {
+      dispatch(setChartType(value));
     },
   };
 }

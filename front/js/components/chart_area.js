@@ -47,7 +47,6 @@ export default class ChartArea extends React.Component {
                 height:'50px', 
                 position:'absolute',
                 left:'0px',
-                border:'1px dotted gray',
                 padding:'10px',
                 paddingLeft:'30px'}}
                 onDrop={this.onDropList2} onDragOver={this.onDragOverList2}></div>
@@ -56,7 +55,6 @@ export default class ChartArea extends React.Component {
                       width:'60px',
                       height:'200px', 
                       position:'absolute',
-                      border:'1px dotted gray',
                       top:'50px',
                       padding:'10px',
                       paddingTop:'30px'}}
@@ -72,10 +70,11 @@ export default class ChartArea extends React.Component {
   render() {
     let dropArea = <ChartDropArea {...this.props} />
     let file = '';
-    if (this.props.scenario =='scenario1'){
+    if (this.props.scenario =='scenario1') {
       let column = null;
       let x = null;
       let y = null;
+      let chartType = this.props.chartType;
       if (this.props.list1.length > 0)  {
         column = this.props.list1[0];
       }
@@ -85,9 +84,16 @@ export default class ChartArea extends React.Component {
       if (this.props.list3.length > 0) {
         y = this.props.list3[0];
       }
-
-      if (column == 'chart type' && x =='year' && y == 'count' ) {
+      if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'table') {
         file = 'chart-type-x-count-x-year.png';
+      } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'bar') {
+        file = 'bar-chart.png'
+      } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'line') {
+        file = 'line-chart.png'
+      } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'number overlay') {
+        file = 'number-overlay.png'
+      } else if (column == 'chart type' && x =='year' && y == 'count' && chartType == 'pie') {
+        file = 'pie-chart.png'
       } else if (column == 'chart type' && x =='year' && y == null) {
         file = 'chart-type-x-year.png';
       } else if (column == 'chart type' && x ==null && y == 'count') {
@@ -102,7 +108,6 @@ export default class ChartArea extends React.Component {
         file = 'year.png'
       }
     }
-
 
     if (file.length > 0) {
       return this.renderImageWithDropArea(file);
