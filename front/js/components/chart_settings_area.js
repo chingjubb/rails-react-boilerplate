@@ -15,6 +15,13 @@ export default class ChartSettingsArea extends React.Component {
                    {value:'line', label:'line'},
                    {value:'number overlay', label:'number overlay'},
                    {value:'pie', label:'pie'}];
+
+    if (this.props.scenario == 'scenario3') {
+      this.options= [{value:'bar', label:'bar'},
+                     {value:'line', label:'line'},
+                     {value:'number overlay', label:'number overlay'},
+                     {value:'pie', label:'pie'}];
+    }
     this.handleChange = this.handleChange.bind(this);
   }
 
